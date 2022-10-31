@@ -1,0 +1,54 @@
+<app-langauges-add *ngIf="showAddFormStatus" [formData]="formData" (onUpdate)="onFormUpdate($event)"></app-langauges-add>
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Languages</h3>
+          <div class="card-tools">
+            <div class="input-group input-group-sm" style="width: 150px;">
+                <button class="btn btn-xs " (click)="toogleAddForm()"> 
+                    <i class="fas fa-plus"></i>
+                  </button>
+              <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+              <div class="input-group-append">
+                <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body table-responsive p-0">
+          <table class="table table-hover text-nowrap">
+            <thead>
+              <tr >
+                <th>ID</th>
+                <th>Language</th>
+                <th>Level</th>
+                <th>Native</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of data let i =index">
+                <th>{{item.id}}</th>
+                <th>{{item.nameId}}</th>
+                <th>{{item.levelId}}</th>
+                <th>{{item.native?'Yes' :'No'}}</th>
+                <td>
+                  <button class="btn btn-xs" (click)="onEdit(i)"> 
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn btn-xs" (click)="onDelete(i)"> 
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+  </div>

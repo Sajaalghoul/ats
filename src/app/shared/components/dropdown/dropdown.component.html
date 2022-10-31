@@ -1,0 +1,8 @@
+<div class="form-group">
+    <select name="Department" (change)="onSelect($event)" class="form-control">
+      <option [selected]="!selectedValue" disabled>Select {{label}}</option>
+      <option *ngFor="let item of list;" value="{{item.id}}"
+      [selected]="selectedValue === item.id">{{item.name}}</option>
+    </select>
+  </div>
+ 

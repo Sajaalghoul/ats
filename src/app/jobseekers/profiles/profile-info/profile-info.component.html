@@ -1,0 +1,59 @@
+<div class="card card-primary">
+    <div class="card-header">
+      <h3 class="card-title">About Me</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <strong><i class="fas fa-book mr-1"></i> Educations</strong>
+
+      <p class="text-muted">
+          <span *ngIf="save"  class="tag tag-danger">
+            <ul *ngFor="let name of educationsN">
+              <li >{{name}}</li>
+            </ul>
+            </span>
+      </p> 
+      <hr>
+      <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
+
+      <p *ngIf="saveall" class="text-muted">{{address?.city}},{{address?.country}}</p>
+
+      <hr>
+
+      <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
+
+      <p class="text-muted" >
+        <span *ngIf="save"  class="tag tag-danger">
+          <ul *ngFor="let skill of skillsN">
+            <li >{{skill}}</li>
+          </ul>
+        </span>
+
+      <hr>
+
+      <strong><i class="far fa-file-alt mr-1"></i> languages</strong>
+      <p class="text-muted">
+        <span *ngIf="save"  class="tag tag-danger">
+          <ul *ngFor="let name of languagesN">
+            <li >{{name}}</li>
+          </ul>
+          </span>
+    </p>
+      <hr>
+      <strong><i class="fas fa-book mr-1"></i> Experiences</strong>
+
+      <p class="text-muted">
+          <span *ngIf="save"  class="tag tag-danger">
+            <ul *ngFor="let u of experiencess">
+              <li >{{u.position}}</li>
+            </ul>
+            </span>
+      </p>
+
+      <hr>
+      <button class="btn btn-primary btn-block" (click)="onchange()"><b>Save All</b></button>
+    </div>
+    
+
+    <!-- /.card-body -->
+  </div>

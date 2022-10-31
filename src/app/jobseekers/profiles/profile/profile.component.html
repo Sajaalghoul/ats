@@ -1,0 +1,113 @@
+<!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Profile</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item "><a href="#">Home</a></li>
+              <li class="breadcrumb-item active ">User Profile</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3">
+
+            <!-- Profile Image -->
+            <div class="card card-primary card-outline">
+              <div class="card-body box-profile">
+                <div class="text-center">
+                  <img class="profile-user-img img-fluid img-circle"
+                       src="assets/img/user4-128x128.jpg"
+                       alt="User profile picture">
+                </div>
+
+                <h3 *ngIf="saveall" class="profile-username text-center">{{user?.firstName}} {{user?.lastName}} </h3>
+
+                <p *ngIf="saveall" class="text-muted text-center">{{user?.role}}</p>
+
+                <ul class="list-group list-group-unbordered mb-3">
+                  <li class="list-group-item">
+                    <b>Email</b> <a *ngIf="saveall" class="float-right">{{contact?.email}}</a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Mobile</b> <a *ngIf="saveall" class="float-right">{{contact?.email}}</a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Fax</b> <a *ngIf="saveall" class="float-right">{{contact?.fax}}</a>
+                  </li>
+                </ul>
+
+                <button class="btn btn-primary btn-block" (click)="onchange()"><b>Save All</b></button>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+            <!-- About Me Box -->
+            <app-profile-info [address]="address"  [contact]="contact" [contact]="contact" [user]="user" [educations]="educations" [skills]="skills" [languages]="languages" [experiences]="experiences" [saveall]="saveall"></app-profile-info>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-9">
+            <div class="card">
+              <div class="card-header p-2">
+                <ul class="nav nav-pills">
+                  <li class="nav-item"><a class="nav-link active" href="#user" data-toggle="tab">Users</a></li>
+                  <li class="nav-item"><a class="nav-link " href="#address" data-toggle="tab">Address</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#contact" data-toggle="tab">Contact</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#educations" data-toggle="tab">Educations</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#experiences" data-toggle="tab">Experiences</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#skills" data-toggle="tab">Skills</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#languages" data-toggle="tab">Languages</a></li>
+                </ul>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content">
+                  
+                  <div class=" tab-pane active" id="user">
+                    <app-users [data]="user" (onUpdate)="onProfileUpdate($event,'user')"></app-users>
+                  </div>
+                  <div class=" tab-pane " id="address">
+                    <app-address [data]="address" (onUpdate)="onProfileUpdate($event,'address')"></app-address>
+                  </div>
+                 
+                  <div class="tab-pane" id="contact">
+                    <app-contact  [data]="contact" (onUpdate)="onProfileUpdate($event,'contact')"></app-contact>
+                  </div>
+                  
+                  <div class="tab-pane" id="educations">
+                    <app-educations [data]="educations" (onUpdate)="onProfileUpdate($event,'educations')"></app-educations>
+                  </div>
+                  <div class="tab-pane" id="experiences">
+                    <app-experiences [data]="experiences" (onUpdate)="onProfileUpdate($event,'experiences')"></app-experiences>
+                  </div>
+                  <div class="tab-pane" id="skills">
+                    <app-skills [data]="skills" (onUpdate)="onProfileUpdate($event,'skills')"></app-skills>
+                  </div>
+                  <div class="tab-pane" id="languages">
+                    <app-languages [data]="languages" (onUpdate)="onProfileUpdate($event,'languages')"></app-languages>
+                  </div>
+                  <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.nav-tabs-custom -->
+          </div>
+          <!-- /.col -->
+        
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+      </div>
+    </section>
+    <!-- /.content -->
+  
